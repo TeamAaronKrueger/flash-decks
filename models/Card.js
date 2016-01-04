@@ -1,10 +1,8 @@
 var mongoose = require('mongoose');
 
 var CardSchema = new mongoose.Schema({
-  Name: String,
-  Ingredients: String,
-  Alcohol: String,
-  Neat: Boolean
+  Question: String,
+  Answer: String
 });
 
 module.exports = mongoose.model('Card',CardSchema);
