@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var model = require('../models/Card');
 
-/* GET users listing. */
+//get all cards
 router.get('/', function(req, res, next) {
   model.find(function(error, cards){
     if (error) console.log(error);
@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
   })
 });
 
+//get cards by ID
 router.get('/:id', function(req, res, next) {
   model.findById(req.params.id,function(error, card){
     if (error) console.log(error);
@@ -17,7 +18,8 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-//create
+
+//create card
 router.post('/', function(req, res, next) {
   model.create(req.body, function(error, card){
     if (error) console.log(error);
@@ -25,6 +27,7 @@ router.post('/', function(req, res, next) {
   });
 });
 
+//edit card
 router.put('/:id', function(req, res, next) {
   model.findByIdAndUpdate(req.params.id, req.body, function(error, card){
     if (error) console.log(error);
@@ -39,6 +42,7 @@ router.patch('/:id', function(req, res, next) {
   });
 });
 
+//delete card
 router.delete('/:id', function(req, res, next){
   model.findByIdAndRemove(req.params.id, req.body, function(error,card){
     if(error) console.log(error);
