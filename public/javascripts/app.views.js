@@ -1,7 +1,7 @@
 var app = app || {};
 var active = active || {};
 
-var currentDeck = "FrenchVerbs";
+var currentDeck = ""; 
 
 app.CollectionView = Backbone.View.extend({
   el: $('#cards'),

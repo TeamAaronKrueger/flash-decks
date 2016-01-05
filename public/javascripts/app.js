@@ -36,10 +36,17 @@ app.Collection = Backbone.Collection.extend({
 });
 
 
+
 $(document).ready(function(){
   console.log('doc is ready');
   active.collection = new app.Collection();
-  $("body").on("click", function () {
-    console.log("whoo");
-  });
+  $('#ChemistryQuiz').on("click", function () {
+    currentDeck = "ChemistryQuiz";
+    console.log("the current deck is "+currentDeck);
+  })
+  $('#Tarrentino Fan Quiz').on("click", function () {
+    currentDeck = "Tarrentino Fan Quiz";
+    console.log("the current deck is "+currentDeck);
+  })
+
 });
