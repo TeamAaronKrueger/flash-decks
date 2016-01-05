@@ -1,7 +1,7 @@
 var app = app || {};
 var active = active || {};
 
-var currentDeck = ""; 
+var currentDeck = "ChemistryQuiz";
 
 app.CollectionView = Backbone.View.extend({
   el: $('#cards'),

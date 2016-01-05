@@ -44,8 +44,8 @@ $(document).ready(function(){
     currentDeck = "ChemistryQuiz";
     console.log("the current deck is "+currentDeck);
   })
-  $('#Tarrentino Fan Quiz').on("click", function () {
-    currentDeck = "Tarrentino Fan Quiz";
+  $('#FrenchVerbs').on("click", function () {
+    currentDeck = "FrenchVerbs";
     console.log("the current deck is "+currentDeck);
   })
 
