@@ -39,7 +39,7 @@ app.Collection = Backbone.Collection.extend({
 $(document).ready(function(){
   console.log('doc is ready');
   active.collection = new app.Collection();
-  $("body").on("click", "#delete", function () {
+  $("body").on("click", function () {
     console.log("whoo");
   });
 });

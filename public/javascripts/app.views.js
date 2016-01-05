@@ -1,8 +1,10 @@
 var app = app || {};
 var active = active || {};
 
+var currentDeck = "FrenchVerbs";
+
 app.CollectionView = Backbone.View.extend({
-  el: $('body'),
+  el: $('#cards'),
   initialize: function() {
     console.log('CollectionView is a go.');
     // when loaded, let us render immediately
@@ -25,20 +27,22 @@ app.CollectionView = Backbone.View.extend({
 
 app.ModelView = Backbone.View.extend({
   initialize: function() {
-    console.log('ModelView instantiated and awaiting orders, sir');
+    console.log('ModelView instantiated');
     this.render();
   },
   render: function() {
     console.log('ModelView rendering.');
     var data = this.model.attributes;
-    console.log('Grabbing template...');
-    var template = $('#card-template').html();
-    console.log('Transforming template...');
-    var compileTpl = _.template(template);
-    console.log('Creating HTML from template and model data...');
-    var html = compileTpl(data);
-    console.log('Rendering to page...');
-    this.$el.append(html);
-    // vanilla - this.el.innerHTML = this.el.innerHTML + html;
+    if (data.DeckName == currentDeck) {
+            console.log('Grabbing template...');
+            var template = $('#card-template').html();
+            console.log('Transforming template...');
+            var compileTpl = _.template(template);
+            console.log('Creating HTML from template and model data...');
+            var html = compileTpl(data);
+            console.log('Rendering to page...');
+            this.$el.append(html);
+            // vanilla - this.el.innerHTML = this.el.innerHTML + html;
+          };
   }
 });
