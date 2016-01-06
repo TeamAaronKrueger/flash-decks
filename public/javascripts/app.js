@@ -1,7 +1,7 @@
 var app = app || {};
 var active = active || {};
 
-var currentDeck;
+var currentDeck = "FrenchVerbs";
 
 //for mongo
 Backbone.Model.idAttribute = "_id";
@@ -13,9 +13,11 @@ app.Model = Backbone.Model.extend({
 });
 
 
-//Old Collection
+//COLLECTION
 app.Collection = Backbone.Collection.extend({
   //get data from the api
+  el: $('#cards'),
+  template: $('#card-template').html(),
   model: app.Model, //specify a model type
   url: '/cards',
   initialize: function(){
@@ -23,12 +25,12 @@ app.Collection = Backbone.Collection.extend({
     console.log('collection is on the loose');
     this.on('change', function(){
         console.log('our collection changed');
-        var view = new app.CollectionView({
+        var deckView = new app.CollectionView({
           collection: self,
           el: $('#cards'),
           template: $('#card-template').html()
         });
-        var view2 = new app.CollectionView({
+         var questionView = new app.CollectionView({
           collection: self,
           el: $('#questions'),
           template: $('#question-template').html()
@@ -37,23 +39,20 @@ app.Collection = Backbone.Collection.extend({
     });
     this.on('sync', function(){
         console.log('our collection is synced');
-        var view = new app.CollectionView({
+        var deckView = new app.CollectionView({
           collection: self,
-          el: $('#cards')
-        });
-        var view2 = new app.CollectionView({
-          collection: self,
-          el: $('#questions')
-
+          el: $('#cards'),
+          template: $('#card-template').html()
         });
     });
     this.fetch();
   }
 });
 
-//Old COLLECTION VIEW
+//COLLECTION VIEW
 app.CollectionView = Backbone.View.extend({
   el: $('#cards'),
+  template: $('#card-template').html(),
   initialize: function() {
     console.log('CollectionView is a go.');
     // when loaded, let us render immediately
@@ -67,9 +66,7 @@ app.CollectionView = Backbone.View.extend({
     // we expect our CollectionView to be bound to a Collection
     var models = this.collection.models;
     for (var m in models) {
-      console.log(this.template);
-
-      new app.DeckModelView({
+      new app.ModelView({
         model: models[m],
         el: this.el
       });
@@ -79,18 +76,19 @@ app.CollectionView = Backbone.View.extend({
 
 
 //Old ModelView
-app.DeckModelView = Backbone.View.extend({
+app.ModelView = Backbone.View.extend({
+  template: $('#card-template').html(),
   initialize: function() {
     console.log('ModelView instantiated');
     this.render();
   },
-  render: function(template) {
+  render: function() {
     console.log('ModelView rendering.');
     var data = this.model.attributes;
       if (data.DeckName == currentDeck) {
       console.log('Grabbing template...');
       console.log('Transforming template...');
-      var compileTpl = _.template(template);
+      var compileTpl = _.template(this.template);
       console.log('Creating HTML from template and model data...');
       var html = compileTpl(data);
       console.log('Rendering to page...');
@@ -99,43 +97,23 @@ app.DeckModelView = Backbone.View.extend({
     }
   });
 
-//restart with Collection Here //
-  var CollView = new Backbone.Collection({
-    template: $('body').html(),
-    el: $('lol'),
-    model: model,
-    initialize: function() {
-
-    },
-    render: function() {
-
-    }
-  })
-/////
 
 
 $(document).ready(function(){
   console.log('doc is ready');
 
-  $('#ChemistryQuiz').on("click", function () {
-    currentDeck = "ChemistryQuiz";
-    console.log("the current deck is "+currentDeck);
-    active.collection = new app.Collection();
-  })
 
-
-  $('#TarrentinoFanQuiz').on("click", function () {
-    currentDeck = "Tarrentino Fan Quiz";
-
-  $('#FrenchVerbs').on("click", function () {
     currentDeck = "FrenchVerbs";
     console.log("the current deck is "+currentDeck);
     active.collection = new app.Collection(
-      {el:
-      template: }
-    );
-  })
-
-
+      {
+          el: $('#cards'),
+          template: $('#card-template').html()
+      });
+     active.collection = new app.Collection(
+      {
+          el: $('#questions'),
+          template: $('#question-template').html()
+      });
 
 });
