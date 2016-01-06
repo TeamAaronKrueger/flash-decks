@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var model = require('../models/Deck');
 
-/* GET users listing. */
+/* GET decks listing. */
 router.get('/', function(req, res, next) {
   model.find(function(error, decks){
     if (error) console.log(error);
