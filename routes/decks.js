@@ -6,8 +6,8 @@ var model = require('../models/Deck');
 router.get('/', function(req, res, next) {
   model.find(function(error, decks){
     if (error) console.log(error);
-    //res.json(decks);
-    res.render('pages/decks', {decks: decks})
+    res.json(decks);
+    //res.render('pages/decks', {decks: decks})
   })
 });
 
