@@ -9,17 +9,34 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <header>
-    <div class="headerLogo"><img class="navLogo" src="../images/decklogo.svg"/></div>
-    <div class="headerTitle"><h1>Flash Decks</h1></div>
-    <div class="headerButtons">
-    <button>Public</button>
-    </div>
-    <div class="headerButtons">
-    <button>My Decks</button>
-  </div>
-  </header>
-  <div class="container">
+
+      <header>
+        <div class="headerLogo"><img class="navLogo" src="../images/decklogo.svg"/></div>
+        <div class="headerTitle"><h1>Flash Decks</h1></div>
+        <div class="headerRight">
+        <div class="headerButtons">
+        <button><img src="../images/logout.svg"/></button>
+        </div>
+        <div class="headerButtons">
+        <button>Public</button>
+        </div>
+        <div class="headerButtons">
+        <button>My Decks</button>
+        </div>
+        <div style="display: none" class="headerButtons">
+        <button>Login</button>
+        </div>
+        </div>
+      </header>
+
+    <!-- {{#if user}} -->
+    <!-- {{else}} -->
+    <!-- <div class="headerButtons">
+    <button>Login</button>
+    </div> -->
+    <!-- {{/if}} -->
+
+  <div class="container" align="center">
     {{{body}}}
   </div>
     <script src="/javascripts/app.js" type="text/javascript"></script>
