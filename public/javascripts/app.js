@@ -19,7 +19,7 @@ app.Collection = Backbone.Collection.extend({
   el: $('#cards'),
   template: $('#card-template').html(),
   model: app.Model, //specify a model type
-  url: '/cards',
+  url: '/api/cards',
   initialize: function(){
     var self = this;
     console.log('collection is on the loose');
@@ -104,7 +104,7 @@ $(document).ready(function(){
 
     function getDecks(){
       $.ajax({
-        url: '/decks',
+        url: '/api/decks',
         type: 'GET',
         dataType: 'json'
       })
@@ -125,7 +125,7 @@ $(document).ready(function(){
     getDecks();
     function renderDecks(data){
       for (var deck in data) {
-        $('body').append(data[deck].Name);
+        $('body').append(data[deck].Name + data[deck].Description);
       };
     };
 

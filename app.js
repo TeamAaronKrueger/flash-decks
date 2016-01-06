@@ -50,8 +50,8 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/cards', cards);
-app.use('/decks', decks);
+app.use('/api/cards', cards);
+app.use('/api/decks', decks);
 app.use('/account', accounts);
 
 // catch 404 and forward to error handler

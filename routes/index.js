@@ -6,9 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('pages/welcome', { user: req.user });
 });
 
-router.get('/deck', function(req, res, next) {
+router.get('/decks', function(req, res, next) {
   var currentDeck = req.params.deck;
-  res.render('pages/deckview', { user: req.user });
+  res.render('pages/decks', { user: req.user });
 });
 
 
