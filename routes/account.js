@@ -10,11 +10,11 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 router.get('/', function(req, res) {
-  res.render('account', { user: req.user });
+  res.render('/pages/deckview', { user: req.user });
 });
 
 router.get('/register', function(req, res) {
-  res.render('register', {user: req.user});
+  res.render('/pages/login', {user: req.user});
 });
 
 router.post('/register', function(req, res) {
@@ -24,7 +24,7 @@ router.post('/register', function(req, res) {
   }),
   req.body.password, function(error, account) {
       if (error) {
-        return res.render('register', { account: account });
+        return res.render('/pages/login', { account: account });
       }
       passport.authenticate('local')(req, res, function() {
         res.redirect('/');
@@ -33,7 +33,7 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
-  res.render('login', { user: req.user });
+  res.render('pages/login', { user: req.user });
 });
 
 // router.post('/login',
@@ -42,7 +42,7 @@ router.get('/login', function(req, res) {
 // });
 
 router.post('/login',
-  passport.authenticate('local', { failureRedirect: '/account' }),
+  passport.authenticate('local', { failureRedirect: '/welcome' }),
   function(req, res) {
     res.redirect('/');
   }

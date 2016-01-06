@@ -14,27 +14,29 @@
         <div class="headerLogo"><img class="navLogo" src="../images/decklogo.svg"/></div>
         <div class="headerTitle"><h1>Flash Decks</h1></div>
         <div class="headerRight">
+        {{#if user}}
         <div class="headerButtons">
         <button><img src="../images/logout.svg"/></button>
+        </div>
+
+        <div class="headerButtons">
+        <button>My Decks</button>
+        </div>
+        {{else}}
+        <div class="headerButtons">
+        <button>Login</button>
         </div>
         <div class="headerButtons">
         <button>Public</button>
         </div>
-        <div class="headerButtons">
-        <button>My Decks</button>
-        </div>
-        <div style="display: none" class="headerButtons">
-        <button>Login</button>
-        </div>
+        {{/if}}
         </div>
       </header>
 
-    <!-- {{#if user}} -->
-    <!-- {{else}} -->
+
     <!-- <div class="headerButtons">
     <button>Login</button>
     </div> -->
-    <!-- {{/if}} -->
 
   <div class="container" align="center">
     {{{body}}}

@@ -4,7 +4,7 @@
 <form action="/account/login" method="post">
   <p><input class="ui-input" type="text" name="username" placeholder="username"></p>
   <p><input class="ui-input" type="password" name="password" placeholder="password"></p>
-  <p><input class="ui-input-button" type="submit" value="Login"></p>
+  <p><button class="ui-input-button" type="submit">Login</button></p>
 </form>
 
 <h2> Register </h2>
@@ -12,5 +12,13 @@
 <form action="/account/register" method="post">
   <p><input class="ui-input" type="text" name="username" placeholder="username"></p>
   <p><input class="ui-input" type="text" name="password" placeholder="password"></p>
-  <p><button class="ui-input-button" type="submit">Create Account</button</p>
+  <p><button class="ui-input-button" type="submit">Register</button></p>
 </form>
+
+
+
+{{#if message}}
+<p class="loginMessage">
+{{message}}
+</p>
+{{/if}}
