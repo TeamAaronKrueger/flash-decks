@@ -2,14 +2,26 @@
 <html>
   <head>
     <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href='https://fonts.googleapis.com/css?family=Orbitron|Indie+Flower' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js'></script>
-
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <header>
+    <div class="headerLogo"><img class="navLogo" src="../images/decklogo.svg"/></div>
+    <div class="headerTitle"><h1>Flash Decks</h1></div>
+    <div class="headerButtons">
+    <button>Public</button>
+    </div>
+    <div class="headerButtons">
+    <button>My Decks</button>
+  </div>
+  </header>
+  <div class="container">
     {{{body}}}
+  </div>
     <script src="/javascripts/app.js" type="text/javascript"></script>
     <script src="/javascripts/app.views.js" type="text/javascript" charset="utf-8" async defer></script>
   </body>

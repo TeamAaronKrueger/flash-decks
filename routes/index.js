@@ -6,13 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('pages/welcome');
 });
 
-router.get('/decks', function(req, res, next) {
-  var currentDeck = req.val();
-
-
-
+router.get('/deck/:deck', function(req, res, next) {
+  var currentDeck = req.params.deck;
   res.render('pages/deckview');
-  console.log(currentDeck);
 });
+
+
 
 module.exports = router;

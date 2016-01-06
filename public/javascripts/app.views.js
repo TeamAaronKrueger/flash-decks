@@ -1,10 +1,34 @@
 var app = app || {};
 var active = active || {};
 
-var currentDeck = ""; 
 
 app.CollectionView = Backbone.View.extend({
   el: $('#cards'),
+  initialize: function() {
+    console.log('CollectionView is a go.');
+    // when loaded, let us render immediately
+    this.$el.html('');
+    console.log(this.template);
+    this.render();
+  },
+  render: function() {
+    console.log('CollectionView is rendering.');
+    this.$el.html('');
+    // we expect our CollectionView to be bound to a Collection
+    var models = this.collection.models;
+    for (var m in models) {
+      console.log(this.template);
+
+      new app.DeckModelView({
+        model: models[m],
+        el: this.el
+      });
+    }
+  }
+});
+
+app.QuestionCollectionView = Backbone.View.extend({
+  el: $('#questions'),
   initialize: function() {
     console.log('CollectionView is a go.');
     // when loaded, let us render immediately
@@ -17,7 +41,7 @@ app.CollectionView = Backbone.View.extend({
     // we expect our CollectionView to be bound to a Collection
     var models = this.collection.models;
     for (var m in models) {
-      new app.ModelView({
+      new app.QuestionModelView({
         model: models[m],
         el: this.el
       });
@@ -25,24 +49,43 @@ app.CollectionView = Backbone.View.extend({
   }
 });
 
-app.ModelView = Backbone.View.extend({
+
+app.DeckModelView = Backbone.View.extend({
   initialize: function() {
     console.log('ModelView instantiated');
     this.render();
   },
-  render: function() {
+  render: function(template) {
+    console.log('ModelView rendering.');
+    var data = this.model.attributes;
+      if (data.DeckName == currentDeck) {
+      console.log('Grabbing template...');
+      console.log('Transforming template...');
+      var compileTpl = _.template(template);
+      console.log('Creating HTML from template and model data...');
+      var html = compileTpl(data);
+      console.log('Rendering to page...');
+      this.$el.append(html);
+      }
+    }
+  });
+
+
+
+app.QuestionModelView = Backbone.View.extend({
+  initialize: function() {
+    console.log('ModelView instantiated');
+    this.render();
+  },
+  render: function(template) {
     console.log('ModelView rendering.');
     var data = this.model.attributes;
     if (data.DeckName == currentDeck) {
-            console.log('Grabbing template...');
-            var template = $('#card-template').html();
-            console.log('Transforming template...');
-            var compileTpl = _.template(template);
-            console.log('Creating HTML from template and model data...');
-            var html = compileTpl(data);
-            console.log('Rendering to page...');
-            this.$el.append(html);
-            // vanilla - this.el.innerHTML = this.el.innerHTML + html;
-          };
+    console.log('Transforming template...');
+    var compileTpl = _.template(template);
+    console.log('Creating HTML from template and model data...');
+    var html = compileTpl(data);
+    console.log('Rendering to page...');
+    this.$el.append(html);
   }
-});
+}});
