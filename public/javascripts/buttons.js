@@ -81,6 +81,12 @@ $(document).ready(function() {
 
   });
 
+  $( "#toggleAddDeck" ).click(function() {
+    $( "#addDeckDiv").toggle( "fast", function(){
+      });
+
+  });
+
   addACard();
   deleteACard();
   saveACard();

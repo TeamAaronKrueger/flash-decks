@@ -13,8 +13,7 @@
     <div id="deckButtons" class="hidden">
     <input type="submit" class="inputButton" id="makePublic" value="Make Public"></input>
     <input type="submit" class="inputButton" id="makePrivate" value="Make Private"></input>
-
-    <!-- delete the deck --- top of the page -->
+    <!-- delete the deck top of the page -->
     <form action="/api/decks/:id" method="delete">
     <input type="submit" class="inputButton" id="deleteDeck" value="Delete Deck"></input>
     </form>
@@ -24,7 +23,7 @@
 
     <table><tr><td class="deckButtons">
     <form action="/studymode" method="post">
-      <input type="hidden" id="currentDeckInput" value="{{currentDeck}}"></input>
+      <input type="hidden" id="currentDeckInput" name="name" value="{{currentDeck}}"></input>
       <input type="submit" class="inputButtonLarge" value="Study Deck"></input>
     </form>
     </td><td class="deckButtons">
