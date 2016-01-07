@@ -105,9 +105,6 @@ router.post('/studydeck', function(req, res, next) {
   });
 });
 
-//delete a deck code
-//pick up the name
-//.where(deckname = deckname), delete by ID in api
 
 
 
