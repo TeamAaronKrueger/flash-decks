@@ -1,0 +1,25 @@
+<!--
+{{#if message}}
+<p class = "message">{{message}}</p>
+{{/if}} -->
+
+<a href="/publicdecks"><button class="inputButtonLarge">Browse Public Decks</button></a>
+
+{{#each decks}}
+  <div id="{{Name}}">
+    <h5> <img class="deckLogo" src="../images/decklogoOrange.svg"/> {{Name}} </h5>
+    <li>
+    <form action="/editdeck" method="post">
+      <input type="hidden" name="name" value="{{Name}}">
+      <input class="inputButton" type="submit" value="Edit Deck"></input>
+    </form>
+    </li>
+    <li>
+    <form action="/studydeck" method="post">
+    <input type="hidden" name="name" value="{{Name}}">
+    <input class="inputButton" type="submit" value="Study Deck"></input>
+    </form>
+    </div>
+    </li>
+
+{{/each}}

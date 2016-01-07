@@ -1,0 +1,16 @@
+<!--
+{{#if message}}
+<p class = "message">{{message}}</p>
+{{/if}} -->
+{{#each decks}}
+  <div id="{{Name}}">
+    <h5> <img class="deckLogo" src="../images/decklogoOrange.svg"/> {{Name}} </h5>
+    <form action="/studydeck" method="post">
+    <input type="hidden" name="name" value="{{Name}}">
+    <span class="author">{{User}}'s Deck</span>
+    <input class="inputButton" type="submit" value="Study Deck"></input>
+    </form>
+    </div>
+
+
+{{/each}}

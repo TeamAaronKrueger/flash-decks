@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js"></script>
+
+<h2>
+  <img class="deckLogo" src="../images/decklogoGreen.svg"/>
+  {{currentDeck}}
+</h2>
+<form action="/editdeck" method="post">
+  <input type="hidden" name="name" value="{{currentDeck}}">
+  <input type="submit" class="inputButton" value="Edit Deck"></input>
+</form>
+
+<div class="editSpinner js-flickity">
+  {{#each cards}}
+    <div class="gallery-cell">
+    <div class="cardDisplay">
+      <table>
+      <tr class="questionCell">
+      <input type="hidden" name="id" value="{{_id}}">
+      <h4> Question</h4>
+        <p id="{{_id}}question" class="question">{{Question}}</p>
+      </tr>
+      <tr class="answerCell">
+      <button class="inputButtonLarge showAnswer" value="{{_id}}" id="{{_id}}showAnswer">Show Answer</button>
+        <p class="answerBox" id="{{_id}}answer"> {{Answer}} </p>
+      </tr>
+      </table>
+    </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,24 @@
+<h2>Login</h2>
+
+
+<form action="/account/login" method="post">
+  <p><input class="uiInput" type="text" name="username" placeholder="username"></p>
+  <p><input class="uiInput" type="password" name="password" placeholder="password"></p>
+  <p><button class="inputButton" type="submit">Login</button></p>
+</form>
+
+<h2> Register </h2>
+
+<form action="/account/register" method="post">
+  <p><input class="uiInput" type="text" name="username" placeholder="username"></p>
+  <p><input class="uiInput" type="text" name="password" placeholder="password"></p>
+  <p><button class="inputButton" type="submit">Register</button></p>
+</form>
+
+
+
+{{#if message}}
+<p class="message">
+{{message}}
+</p>
+{{/if}}
