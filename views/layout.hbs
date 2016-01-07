@@ -14,16 +14,23 @@
         <div class="headerTitle"><h1>Flash Decks</h1></div>
         <div class="headerRight">
 
+      {{#if currentUser}}
         <div class="headerButtons">
         <button id="logoutButton">⇨</button>
         </div>
+
         <div class="headerButtons">
         <a href="/mydecks"><button>My Decks</button></a>
         </div>
 
+      {{/if}}
+
+      {{#unless currentUser}}
         <div class="headerButtons">
         <a href="/account/login"><button>Login</button></a>
         </div>
+
+      {{/unless}}
 
         <div class="headerButtons">
         <a href="/publicdecks"><button>Public</button></a>
