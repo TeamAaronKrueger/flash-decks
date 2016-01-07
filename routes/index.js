@@ -28,7 +28,7 @@ router.get('/mydecks', function(req, res, next) {
         res.render('pages/mydecks',
         {
           decks: currentDecks,
-          currentUser: req.user,
+          currentUser: req.user.username,
           message: req.user.username+"'s Decks:"
         });
       };
