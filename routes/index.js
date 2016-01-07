@@ -7,7 +7,9 @@ var modelCards = require('../models/Card');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   model.find(function(error, decks){
-      res.render('pages/welcome', {cards: decks});
+      res.render('pages/welcome', {
+        cards: decks
+      });
     })
 });
 
@@ -48,7 +50,8 @@ router.post('/editdeck', function(req, res, next) {
     }
     res.render('pages/editdeckview', {
       cards: currentCards,
-      currentDeck: currentDeck
+      currentDeck: currentDeck,
+      currentUser: req.user.username
     });
   });
 });
@@ -77,7 +80,6 @@ router.get('/publicdecks', function(req, res, next) {
         res.render('pages/publicdecks',
         {
           decks: currentDecks,
-          currentUser: req.user,
           message: "Welcome to public decks."
         });
       };
@@ -98,7 +100,7 @@ router.post('/studydeck', function(req, res, next) {
     }
     res.render('pages/studymode', {
       cards: currentCards,
-      currentDeck: currentDeck
+      currentUser: req.user.username
     });
   });
 });

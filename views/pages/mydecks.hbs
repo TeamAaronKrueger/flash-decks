@@ -25,11 +25,8 @@
     </li>
       <div id = "{{_id}}deckButtons" class="hidden">
     <li>
-      {{#if Public == true}}
       <input type="submit" class="inputButton" id="{{_id}}makePublic" value="Make Public"></input>
-      {{else}}
       <input type="submit" class="inputButton" id="{{_id}}makePrivate" value="Make Private"></input>
-      {{/if}}
     </li>
     <!-- delete the deck top of the page -->
     <li>
@@ -47,12 +44,7 @@
 
 <div id="toggleAddDeck"><h4> Add A Deck</h4></div>
 <div class="hidden" id="addDeckDiv">
-<<<<<<< HEAD
-  <form action="/api/decks/" method="post" id="addDeckForm">
-=======
-
   <form action="/mydecks" method="get" id="addDeckForm">
->>>>>>> c5b60e80a01f2c11e2757117c9e14e01d8e8e0df
     <h4> Deck Name: </h4>
     <p><textarea name="Name" class="inputBoxLarge"></textarea></p>
     <input type="hidden" name="User" value="{{currentUser}}"></input>
