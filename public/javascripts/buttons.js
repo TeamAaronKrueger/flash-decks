@@ -48,6 +48,38 @@ function saveACard(){
 
 }
 
+function deleteADeck(){
+  $('.deleteADeck').click(function(){
+    var id = this.value;
+    $.ajax({
+      url: '/api/decks/'+id,
+      type: 'DELETE'
+    })
+    .done(function() {
+      console.log("success");
+      console.log(value);
+    })
+  })
+}
+
+function addADeck() {
+ $("#addADeck").click(function(){
+   $.ajax({
+     url: '/api/decks',
+     type: 'post',
+     data: $("#addDeckForm").serialize(),
+   })
+   .done(function(response) {
+     console.log("success/hello");
+     console.log(response);
+   })
+   .fail(function() {
+     console.log("error");
+   })
+
+ })
+}
+
 $(document).ready(function() {
 
   //DECK View buttons
@@ -81,15 +113,22 @@ $(document).ready(function() {
 
   });
 
-  $( "#toggleAddDeck" ).click(function() {
-    $( "#addDeckDiv").toggle( "fast", function(){
-      });
 
+  $( ".showDeckButtons" ).click(function() {
+      var id= this.value;
+      console.log(id);
+        $("#"+id+"deckButtons").show( "fast", function(){
+          console.log("showing answer")
+        });
+        $("#"+id+"showDeckButtons").hide('fast', function() {
+        });
   });
 
   addACard();
   deleteACard();
   saveACard();
+  deleteADeck();
+  addADeck();
 
   $( ".showAnswer" ).click(function() {
       var id= this.value;

@@ -21,17 +21,18 @@
     </form>
     </li>
     <li>
-    <button class="inputButton" id="showDeckButtons">edit Deck</button>
+      <button id="{{_id}}toggleDeckButtons" class="inputButton showDeckButtons" value="{{_id}}">edit Deck</button>
     </li>
-      <div id="deckButtons" class="hidden">
+      <div id = "{{_id}}deckButtons" class="hidden">
     <li>
       <input type="submit" class="inputButton" id="{{_id}}makePublic" value="Make Public"></input>
       <input type="submit" class="inputButton" id="{{_id}}makePrivate" value="Make Private"></input>
     </li>
     <!-- delete the deck top of the page -->
     <li>
-      <form action="/api/decks/:id" method="delete">
-      <input type="submit" class="inputButton" id="deleteDeck" value="Delete Deck"></input>
+      <form action="/mydecks" method="get">
+        <!-- <input type="hidden" name="id" value="{{_id}}"></input> -->
+        <button type="submit" class="inputButton deleteADeck" id="deleteDeck" value="{{_id}}"> Delete Deck</button>
       </form>
     </li>
     </div>
@@ -43,14 +44,18 @@
 
 <div id="toggleAddDeck"><h4> Add A Deck</h4></div>
 <div class="hidden" id="addDeckDiv">
-  <form action="/api/decks" method="post" id="addDeckForm">
+
+  <form action="/mydecks" method="get" id="addDeckForm">
     <h4> Deck Name: </h4>
     <p><textarea name="Name" class="inputBoxLarge"></textarea></p>
     <input type="hidden" name="User" value="{{currentUser}}"></input>
     <h4> Deck Privacy: </h4>
+    <p class = "message">
     <input type="radio" name="Public" value="true">Public Deck
     <input type="radio" name="Public" value="false">Private Deck <br>
+    </p>
     <span class="inputButton closeAdd">x</span>
     <input type="submit" value="Add Deck" class="inputButton" id="addADeck"></input>
   </form>
+
 </div>
