@@ -9,20 +9,8 @@
 
 
   <p>
-    <button class="inputButton" id="showDeckButtons">edit Deck</button>
-    <div id="deckButtons" class="hidden">
-    <input type="submit" class="inputButton" id="makePublic" value="Make Public"></input>
-    <input type="submit" class="inputButton" id="makePrivate" value="Make Private"></input>
-    <!-- delete the deck top of the page -->
-    <form action="/api/decks/:id" method="delete">
-    <input type="submit" class="inputButton" id="deleteDeck" value="Delete Deck"></input>
-    </form>
-    </div>
-
-
-
     <table><tr><td class="deckButtons">
-    <form action="/studymode" method="post">
+    <form action="/studydeck" method="post">
       <input type="hidden" id="currentDeckInput" name="name" value="{{currentDeck}}"></input>
       <input type="submit" class="inputButtonLarge" value="Study Deck"></input>
     </form>
@@ -34,7 +22,7 @@
 
   </p>
 
-    <div class="addCard" id="addCardDiv">
+  <div class="addCard" id="addCardDiv">
     <form action="/editdeck" method="post" id="addCardForm">
       <input type="hidden" name="name" value="{{currentDeck}}"></input>
       <input type="hidden" name="DeckName" value="{{{currentDeck}}}"></input>
@@ -68,7 +56,7 @@
         <p><button type="submit" id="{{_id}}save" value="{{_id}}" class="inputButton saveCardButton">Save</button>
       </form>
 
-        <!-- edit button -- no logic necessary -- just appends the edit fields-->
+        <!-- edit button no logic necessary just appends the edit fields-->
         <button id="{{_id}}edit" value="{{_id}}" class="inputButton editCardButton">Edit</button>
 
         <!--DELETE CARD-->

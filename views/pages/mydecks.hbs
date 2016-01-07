@@ -8,12 +8,7 @@
 {{#each decks}}
   <div id="{{Name}}">
     <h5> <img class="deckLogo" src="../images/decklogoOrange.svg"/> {{Name}} </h5>
-    <li>
-    <form action="/editdeck" method="post">
-      <input type="hidden" name="name" value="{{Name}}">
-      <input class="inputButton" type="submit" value="Edit Cards"></input>
-    </form>
-    </li>
+
     <li>
     <form action="/studydeck" method="post">
     <input type="hidden" name="name" value="{{Name}}">
@@ -21,15 +16,20 @@
     </form>
     </li>
     <li>
-      <button id="{{_id}}toggleDeckButtons" class="inputButton showDeckButtons" value="{{_id}}">Edit Deck</button>
+      <button class="inputButton showDeckButtons" value="{{_id}}">Edit Deck</button>
     </li>
-      <div id = "{{_id}}deckButtons" class="hidden">
+    <div id = "{{_id}}deckButtons" class="hidden">
     <li>
-      {{#if Public == true}}
-      <input type="submit" class="inputButton" id="{{_id}}makePublic" value="Make Public"></input>
-      {{else}}
-      <input type="submit" class="inputButton" id="{{_id}}makePrivate" value="Make Private"></input>
-      {{/if}}
+        <form action="/editdeck" method="post">
+          <input type="hidden" name="name" value="{{Name}}">
+          <input class="inputButton" type="submit" value="Edit Cards"></input>
+        </form>
+    </li>
+    <li>
+      <div class="publicPrivateToggle" value="{{Public}}">
+      <button type="submit" class="inputButton publicButtonToggle" id="{{_id}}makePublic">Make Public</button>
+      <button type="submit" class="inputButton privateButtonToggle" id="{{_id}}makePrivate"> Make Private</button>
+      </div>
     </li>
     <!-- delete the deck top of the page -->
     <li>

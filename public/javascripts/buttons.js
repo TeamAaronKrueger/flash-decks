@@ -1,3 +1,19 @@
+function togglingPublicPrivateDecks() {
+  $.each( $('.publicPrivateToggle').each {
+    var value = this.value;
+    console.log(value);
+
+      if (value == true) {
+        this.children('.privateButtonToggle').removeClass('hidden');
+        this.children('.publicButtonToggle').addClass('hidden');
+      } else if (value == false) {
+        this.children('.publicButtonToggle').removeClass('hidden');
+        this.children('.privateButtonToggle').addClass('hidden');
+      }
+  });
+
+};
+
 function addACard() {
  $("#addACard").click(function(){
    $.ajax({
@@ -106,13 +122,6 @@ $(document).ready(function() {
     $( "#addCardDiv").toggle( "fast" );
   });
 
-  $( "#showDeckButtons" ).click(function() {
-    $( "#deckButtons").toggle( "fast", function(){
-         $( "#showDeckButtons" ).toggle( "fast");
-    });
-
-  });
-
 
   $( ".showDeckButtons" ).click(function() {
       var id= this.value;
@@ -120,15 +129,7 @@ $(document).ready(function() {
         $("#"+id+"deckButtons").show( "fast", function(){
           console.log("showing answer")
         });
-        $("#"+id+"showDeckButtons").hide('fast', function() {
-        });
   });
-
-  addACard();
-  deleteACard();
-  saveACard();
-  deleteADeck();
-  addADeck();
 
   $( ".showAnswer" ).click(function() {
       var id= this.value;
@@ -152,5 +153,14 @@ $(document).ready(function() {
       var id= this.value;
       saveItem(id);
   });
+
+  addACard();
+  deleteACard();
+  saveACard();
+  deleteADeck();
+  addADeck();
+  togglingPublicPrivateDecks();
+
+
 
 });
