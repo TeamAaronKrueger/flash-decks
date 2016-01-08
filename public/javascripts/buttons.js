@@ -70,15 +70,18 @@ function saveACard(){
 
 function deleteADeck(){
   $('.deleteADeck').click(function(){
-    var id = this.value;
-    $.ajax({
-      url: '/api/decks/'+id,
-      type: 'DELETE'
-    })
-    .done(function() {
-      console.log("success");
-      console.log(value);
-    })
+    confirm('Are you sure you want to delete this deck?');
+    if (confirm) {
+      var id = this.value;
+      $.ajax({
+        url: '/api/decks/'+id,
+        type: 'DELETE'
+      })
+      .done(function() {
+        console.log("success");
+        console.log(value);
+      })
+    };
   })
 }
 
