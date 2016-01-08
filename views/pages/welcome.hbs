@@ -3,3 +3,8 @@
 <p class ="message"> Get started by logging in or browse our public decks.</p>
 <p><a href="/publicdecks"><button class="inputButtonLarge">Browse Public Decks</button></p></a>
 <p><a href="/account/login"><button class="inputButtonLarge">Register or Login</button></a>
+
+
+{{#if message}}
+<p class = "message">{{message}}</p>
+{{/if}}

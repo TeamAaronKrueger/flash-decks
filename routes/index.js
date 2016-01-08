@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/mydecks', function(req, res, next) {
+if (req.user) {
   model.find(function(error, decks){
       if (error) {
         console.log(error);
@@ -35,6 +36,9 @@ router.get('/mydecks', function(req, res, next) {
         });
       };
     });
+    } else {
+      res.redirect('/');
+    }; //end if
   });
 
 router.post('/editdeck', function(req, res, next) {
@@ -77,11 +81,20 @@ router.get('/publicdecks', function(req, res, next) {
             currentDecks.push(decks[deck]);
           }
         };
-        res.render('pages/publicdecks',
-        {
-          decks: currentDecks,
-          message: "Welcome to public decks."
-        });
+        if (req.user) {
+          res.render('pages/publicdecks',
+          {
+            decks: currentDecks,
+            message: "Welcome to public decks.",
+            currentUser: req.user.username
+          });
+        } else {
+          res.render('pages/publicdecks',
+          {
+            decks: currentDecks,
+            message: "Welcome to public decks."
+          });
+        }
       };
     });
   });
