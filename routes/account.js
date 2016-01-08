@@ -27,7 +27,7 @@ router.post('/register', function(req, res) {
         return res.render('/pages/login', { account: account, message: "This username already exists!" });
       }
       passport.authenticate('local')(req, res, function() {
-        res.redirect('/');
+        res.redirect('/mydecks');
       });
   })
 });
