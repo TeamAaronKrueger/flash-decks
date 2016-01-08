@@ -4,3 +4,5 @@ function verifyRegistration(){
     console.log(data);
   })
 }
+
+verifyRegistration();
