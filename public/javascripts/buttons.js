@@ -147,12 +147,9 @@ $(document).ready(function() {
   $( ".showAnswer" ).click(function() {
       var id= this.value;
       console.log(id);
-        $("#"+id+"answer").show( "fast", function(){
-          console.log("showing answer")
+        $("#"+id+"answer").show();
         });
-        $("#"+id+"showAnswer").hide('fast', function() {
-          console.log("")
-        });
+        $("#"+id+"showAnswer").hide(});
   });
 
   $( ".flipCards" ).click(function() {
