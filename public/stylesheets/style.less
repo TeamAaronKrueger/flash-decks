@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  margin-top: 13em;
+  margin-top: 15em;
   padding: 3em;
 }
 header {
@@ -17,20 +17,24 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding-top: 23px;
+  align: center;
 }
 
 .headerLogo {
   display: inline;
   float: left;
-  width: 13%;
+  width: 25%;
 }
 
 .headerTitle {
   display: inline;
   float: left;
-  width: 55%;
-  text-align: center;
+  width: 75%;
+}
+
+.navBar {
+  margin-top: 0;
+  margin: 20px;
 }
 
 
@@ -50,8 +54,18 @@ header {
 }
 
 .navLogo {
-  padding: 15px;
-  height: 6.5em;
+  padding: 2em;
+  height: 10em;
+}
+
+.navButton {
+  margin: 5px;
+  font-size: 2.1em;
+  border: 3px solid white;
+  border-radius: 9px;
+  background: none;
+  color: white;
+  padding: 8px;
 }
 
 .deckLogo {
@@ -62,14 +76,14 @@ header {
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 5.3em;
+  font-size: 7em;
   color: @orange;
-  margin-top: 0.4em;
   text-shadow:
    -3px -3px 0 white,
     2px -2px 0 white,
     -2px 2px 0 white,
      3px 3px 0 white;
+  margin-bottom: 10px;
 }
 
 h2, h3, h5 {
@@ -98,15 +112,6 @@ h3 {
   font-size: 6em;
   text-shadow: none;
   color: @orange;
-}
-
-button {
-  font-size: 2.4em;
-  border: 3px solid white;
-  border-radius: 9px;
-  background: none;
-  color: white;
-  padding: 10px;
 }
 
 .uiInput {
@@ -201,9 +206,15 @@ textarea {
   display: none;
 }
 
+
 .question, .answer {
   font-size: 3em;
   padding: 10px;
+}
+
+.radioButton {
+  width: 3em;
+  height: 3em;
 }
 
 li {
@@ -236,7 +247,7 @@ h4 {
   margin-bottom: 10px;
 }
 
-.answerBox {
+.answer {
   font-size: 2.8em;
   font-family: 'Orbitron', sans-serif;
   color: @teal;

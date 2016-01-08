@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // function togglingPublicPrivateDecks() {
 //   $.each( $('.publicPrivateToggle').each {
 //     var value = this.value;
@@ -13,6 +14,9 @@
 //   });
 
 // };
+=======
+// make a function for public/private
+>>>>>>> ccfabcccccce1d22f2430cb1d6ffd5705cd35372
 
 function addACard() {
  $("#addACard").click(function(){
@@ -46,6 +50,7 @@ function deleteACard(){
     })
   })
 }
+
 /////who is proud of me for making all these lovely individual functions!!!!
 function saveACard(){
     $('.saveCardButton').click(function(){
@@ -125,13 +130,17 @@ $(document).ready(function() {
   });
 
 
-  $( ".showDeckButtons" ).click(function() {
-      var id= this.value;
-      console.log(id);
-        $("#"+id+"deckButtons").show( "fast", function(){
-          console.log("showing answer")
-        });
+  $( "#addDeck").click(function() {
+    $( "#addDeckDiv").toggle( "fast", function(){
+      //animation occured
+    })
   });
+
+
+  $( ".closeDeck").click(function() {
+    $( "#addDeckDiv").toggle( "fast" );
+  });
+
 
   $( ".showAnswer" ).click(function() {
       var id= this.value;
@@ -143,6 +152,17 @@ $(document).ready(function() {
           console.log("")
         });
   });
+
+  $( ".flipCards" ).click(function() {
+      $(".answer").hide('fast', function() {
+        //answers hidden
+      });
+      $(".showAnswer").show('fast', function() {
+        //show answers shown
+      });
+  });
+
+
 
   $( ".editCardButton" ).click(function() {
       var id= this.value;
@@ -156,13 +176,17 @@ $(document).ready(function() {
       saveItem(id);
   });
 
+
   addACard();
   deleteACard();
   saveACard();
   deleteADeck();
   addADeck();
+<<<<<<< HEAD
 //  togglingPublicPrivateDecks();
 
 
+=======
+>>>>>>> ccfabcccccce1d22f2430cb1d6ffd5705cd35372
 
 });

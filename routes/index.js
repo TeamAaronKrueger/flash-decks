@@ -115,12 +115,14 @@ router.post('/studydeck', function(req, res, next) {
           res.render('pages/studymode',
           {
             cards: currentCards,
-            currentUser: req.user.username
+            currentUser: req.user.username,
+            currentDeck : currentDeck
           });
         } else {
           res.render('pages/studymode',
           {
-            cards: currentCards
+            cards: currentCards,
+            currentDeck : currentDeck
           });
         }
   });

@@ -17,7 +17,6 @@ var cards = require('./routes/cards');
 var accounts = require('./routes/account')
 
 var app = express();
-
 //express sessions
 app.use(require('express-session')({
   secret: 'purple people eaters',
