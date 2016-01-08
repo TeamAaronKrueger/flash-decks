@@ -1,18 +1,18 @@
-function togglingPublicPrivateDecks() {
-  $.each( $('.publicPrivateToggle').each {
-    var value = this.value;
-    console.log(value);
+// function togglingPublicPrivateDecks() {
+//   $.each( $('.publicPrivateToggle').each {
+//     var value = this.value;
+//     console.log(value);
 
-      if (value == true) {
-        this.children('.privateButtonToggle').removeClass('hidden');
-        this.children('.publicButtonToggle').addClass('hidden');
-      } else if (value == false) {
-        this.children('.publicButtonToggle').removeClass('hidden');
-        this.children('.privateButtonToggle').addClass('hidden');
-      }
-  });
+//       if (value == true) {
+//         this.children('.privateButtonToggle').removeClass('hidden');
+//         this.children('.publicButtonToggle').addClass('hidden');
+//       } else if (value == false) {
+//         this.children('.publicButtonToggle').removeClass('hidden');
+//         this.children('.privateButtonToggle').addClass('hidden');
+//       }
+//   });
 
-};
+// };
 
 function addACard() {
  $("#addACard").click(function(){
@@ -161,7 +161,7 @@ $(document).ready(function() {
   saveACard();
   deleteADeck();
   addADeck();
-  togglingPublicPrivateDecks();
+//  togglingPublicPrivateDecks();
 
 
 
