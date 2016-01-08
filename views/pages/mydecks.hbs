@@ -43,18 +43,20 @@
     </li>
 {{/each}}
 
-<div id="toggleAddDeck"><h4> Add A Deck</h4></div>
-<div class="hidden" id="addDeckDiv">
+<br>
+
+<div id="addDeck"><h4> Add A Deck</h4></div>
+<div class="addCard hidden" id="addDeckDiv">
   <form action="/mydecks" method="get" id="addDeckForm">
     <h4> Deck Name: </h4>
-    <p><textarea name="Name" class="inputBoxLarge"></textarea></p>
+    <p><input type="text" name="Name" class="inputBoxLarge"></input></p>
     <input type="hidden" name="User" value="{{currentUser}}"></input>
     <h4> Deck Privacy: </h4>
     <p class = "message">
     <input type="radio" class="radioButton" name="Public" value="true">Public Deck
     <input type="radio" class="radioButton" name="Public" value="false">Private Deck <br>
     </p>
-    <span class="inputButton closeAdd">x</span>
+    <span class="inputButton closeDeck">x</span>
     <input type="submit" value="Add Deck" class="inputButton" id="addADeck"></input>
   </form>
 

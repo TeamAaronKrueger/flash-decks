@@ -1,4 +1,4 @@
-
+// make a function for public/private
 
 function addACard() {
  $("#addACard").click(function(){
@@ -112,15 +112,17 @@ $(document).ready(function() {
   });
 
 
-  $( ".showDeckButtons" ).click(function() {
-      var id= this.value;
-      console.log(id);
-        $("#"+id+"deckButtons").show( "fast", function(){
-          console.log("showing answer")
-        });
+  $( "#addDeck").click(function() {
+    $( "#addDeckDiv").toggle( "fast", function(){
+      //animation occured
+    })
   });
 
-  
+
+  $( ".closeDeck").click(function() {
+    $( "#addDeckDiv").toggle( "fast" );
+  });
+
 
   $( ".showAnswer" ).click(function() {
       var id= this.value;
