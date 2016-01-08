@@ -148,10 +148,8 @@ $(document).ready(function() {
       var id= this.value;
       console.log(id);
         $("#"+id+"answer").show( "fast", function(){
-          console.log("showing answer")
         });
         $("#"+id+"showAnswer").hide('fast', function() {
-          console.log("")
         });
   });
 
