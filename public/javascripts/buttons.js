@@ -1,18 +1,4 @@
-function togglingPublicPrivateDecks() {
-  $.each( $('.publicPrivateToggle').each {
-    var value = this.value;
-    console.log(value);
 
-      if (value == true) {
-        this.children('.privateButtonToggle').removeClass('hidden');
-        this.children('.publicButtonToggle').addClass('hidden');
-      } else if (value == false) {
-        this.children('.publicButtonToggle').removeClass('hidden');
-        this.children('.privateButtonToggle').addClass('hidden');
-      }
-  });
-
-};
 
 function addACard() {
  $("#addACard").click(function(){
@@ -46,6 +32,7 @@ function deleteACard(){
     })
   })
 }
+
 /////who is proud of me for making all these lovely individual functions!!!!
 function saveACard(){
     $('.saveCardButton').click(function(){
@@ -131,6 +118,8 @@ $(document).ready(function() {
         });
   });
 
+  
+
   $( ".showAnswer" ).click(function() {
       var id= this.value;
       console.log(id);
@@ -154,13 +143,11 @@ $(document).ready(function() {
       saveItem(id);
   });
 
+
   addACard();
   deleteACard();
   saveACard();
   deleteADeck();
   addADeck();
-  togglingPublicPrivateDecks();
-
-
 
 });
