@@ -135,6 +135,17 @@ $(document).ready(function() {
         });
   });
 
+  $( ".flipCards" ).click(function() {
+      $(".answer").hide('fast', function() {
+        //answers hidden
+      });
+      $(".showAnswer").show('fast', function() {
+        //show answers shown
+      });
+  });
+
+
+
   $( ".editCardButton" ).click(function() {
       var id= this.value;
       editItem(id);

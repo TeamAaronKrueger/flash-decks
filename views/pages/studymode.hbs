@@ -11,8 +11,7 @@
   <input type="submit" class="inputButton" value="Edit Cards"></input>
 </form>
 
-  <button class="inputButton flipCards" value="Edit Cards"></button>
-
+<button class="inputButton flipCards" value="flip Cards">Reset Cards</button>
 
 <div class="editSpinner js-flickity">
   {{#each cards}}
@@ -26,7 +25,7 @@
       </tr>
       <tr class="answerCell">
       <button class="inputButtonLarge showAnswer" value="{{_id}}" id="{{_id}}showAnswer">Show Answer</button>
-        <p class="answerBox" id="{{_id}}answer"> {{Answer}} </p>
+        <p class="answer" id="{{_id}}answer"> {{Answer}} </p>
       </tr>
       </table>
     </div>

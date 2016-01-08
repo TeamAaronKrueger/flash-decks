@@ -12,24 +12,23 @@
       <header>
         <div class="headerLogo"><img class="navLogo" src="../images/decklogo.svg"/></div>
         <div class="headerTitle"><h1>Flash Decks</h1></div>
-        <div class="headerRight">
-
+        <div class="navBar" align="center">
         <li>
-          <a href="/publicdecks"><button>Public</button></a>
+          <a href="/publicdecks"><button class="navButton">Public</button></a>
         </li>
       {{#if currentUser}}
         <li>
-          <a href="/mydecks"><button>My Decks</button></a>
-        </li>
-        <li>
-        <a href="/account/leave"><button id="logoutButton">Logout ⇨</button></a>
+          <a href="/mydecks"><button class="navButton">My Decks</button></a>
+          <a href="/account/leave"><button class="navButton" id="logoutButton">Logout ⇨</button></a>
         </li>
       {{/if}}
       {{#unless currentUser}}
         <li>
-        <a href="/account/login"><button>Login</button></a>
+        <a href="/account/login"><button class="navButton">Login</button></a>
         </li>
+        </div>
       {{/unless}}
+
       </header>
 
 

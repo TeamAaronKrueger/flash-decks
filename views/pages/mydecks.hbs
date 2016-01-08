@@ -9,16 +9,16 @@
   <div id="{{Name}}">
     <h5> <img class="deckLogo" src="../images/decklogoOrange.svg"/> {{Name}} </h5>
 
-    <li>
     <form action="/studydeck" method="post">
     <input type="hidden" name="name" value="{{Name}}">
-    <input class="inputButton" type="submit" value="Study Deck"></input>
+    <input class="inputButtonLarge" type="submit" value="Study Deck"></input>
     </form>
-    </li>
-    <li>
+
+    
+    <!-- <li>
       <button class="inputButton showDeckButtons" value="{{_id}}">Edit Deck</button>
-    </li>
-    <div id = "{{_id}}deckButtons" class="hidden">
+    </li> -->
+    <!-- <div id = "{{_id}}deckButtons" class="hidden"> -->
     <li>
         <form action="/editdeck" method="post">
           <input type="hidden" name="name" value="{{Name}}">
@@ -32,11 +32,11 @@
     <!-- delete the deck top of the page -->
     <li>
       <form action="/mydecks" method="get">
-        <!-- <input type="hidden" name="id" value="{{_id}}"></input> -->
         <button type="submit" class="inputButton deleteADeck" id="deleteDeck" value="{{_id}}"> Delete Deck</button>
       </form>
     </li>
-    </div>
+
+    <!-- </div> -->
 
 
     </div>
