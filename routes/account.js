@@ -24,7 +24,7 @@ router.post('/register', function(req, res) {
   }),
   req.body.password, function(error, account) {
       if (error) {
-        return res.render('/pages/login', { account: account });
+        return res.render('/pages/login', { account: account, message: "This username already exists!" });
       }
       passport.authenticate('local')(req, res, function() {
         res.redirect('/');
@@ -42,7 +42,7 @@ router.get('/login', function(req, res) {
 // });
 
 router.post('/login',
-  passport.authenticate('local', { failureRedirect: '/welcome' }),
+  passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/mydecks');
   }
