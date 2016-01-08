@@ -1,22 +1,4 @@
-<<<<<<< HEAD
-// function togglingPublicPrivateDecks() {
-//   $.each( $('.publicPrivateToggle').each {
-//     var value = this.value;
-//     console.log(value);
 
-//       if (value == true) {
-//         this.children('.privateButtonToggle').removeClass('hidden');
-//         this.children('.publicButtonToggle').addClass('hidden');
-//       } else if (value == false) {
-//         this.children('.publicButtonToggle').removeClass('hidden');
-//         this.children('.privateButtonToggle').addClass('hidden');
-//       }
-//   });
-
-// };
-=======
-// make a function for public/private
->>>>>>> ccfabcccccce1d22f2430cb1d6ffd5705cd35372
 
 function addACard() {
  $("#addACard").click(function(){
@@ -182,11 +164,7 @@ $(document).ready(function() {
   saveACard();
   deleteADeck();
   addADeck();
-<<<<<<< HEAD
-//  togglingPublicPrivateDecks();
 
-
-=======
 >>>>>>> ccfabcccccce1d22f2430cb1d6ffd5705cd35372
 
 });
