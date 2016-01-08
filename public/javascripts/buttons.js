@@ -151,7 +151,7 @@ $(document).ready(function() {
         });
         $("#"+id+"showAnswer").hide('fast', function() {
         });
-  });
+      });
 
   $( ".flipCards" ).click(function() {
       $(".answer").hide('fast', function() {
